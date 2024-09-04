@@ -4,12 +4,12 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
-import Navigation from "./components/Navigation";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <>
-      <Navigation />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
