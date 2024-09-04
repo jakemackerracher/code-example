@@ -22,7 +22,7 @@
 
    `pip install -r requirements.txt`
 
-6. Run the Flask Application
+6. Start the Flask Application
 
    `python app.py`
 
@@ -31,3 +31,27 @@
    Visit [http://127.0.0.1:5000](http://127.0.0.1:5000/) within your browser
 
 To stop the Flask application, press Ctrl + C in the terminal where it's running.
+
+### Running the React application
+
+1. Ensure you have Node.js installed on your system
+
+   `node --version` e.g. v22.7.0
+
+2. Ensure you have npm installed on your system
+
+   `npm --version` e.g. 10.8.3
+
+3. Change the working directory to app
+
+   `cd app`
+
+4. Start the React Application
+
+   `npm start`
+
+5. Open React application within browser
+
+   Visit [http://127.0.0.1:3000](http://127.0.0.1:3000/) within your browser
+
+To stop the React application, press Ctrl + C in the terminal where it's running.
