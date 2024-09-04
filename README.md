@@ -22,11 +22,17 @@
 
    `pip install -r requirements.txt`
 
-6. Start the Flask Application
+6. Create database instance and run database migrations
+
+   `flask db migrate`
+
+   `flask db upgrade`
+
+7. Start the Flask Application
 
    `python app.py`
 
-7. Open Flask application within browser
+8. Open Flask application within browser
 
    Visit [http://127.0.0.1:5000](http://127.0.0.1:5000/) within your browser
 
