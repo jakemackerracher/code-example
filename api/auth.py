@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify
 from flask_login import login_user, logout_user, login_required, current_user
 from base import db, bcrypt
 from models import User
+from schemas.user import UserResponseSchema
 
 auth_bp = Blueprint('auth', __name__)
 
@@ -84,9 +85,8 @@ def logout():
 
 @auth_bp.route("/user")
 @login_required
-def user():
-    return jsonify({
-        "id": current_user.id,
-        "name": current_user.name,
-        "email": current_user.email
-    }), 200
+def get_user():
+    # Process user response through user schema
+    user_response_schema = UserResponseSchema()
+    result = user_response_schema.dump(current_user)
+    return jsonify(result)

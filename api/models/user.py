@@ -10,4 +10,4 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, nullable=False, default=db.func.now())
 
     def __repr__(self):
-        return f"<User {self.name}>"
+        return f"<User {self.id}>"
