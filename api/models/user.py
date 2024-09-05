@@ -8,6 +8,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(256), unique=True, nullable=False)
     password = db.Column(db.String(256), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=db.func.now())
+    is_admin = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
         return f"<User {self.id}>"

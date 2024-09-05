@@ -3,6 +3,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 from base import db, bcrypt
 from models import User
 from schemas.user import UserResponseSchema
+from sqlalchemy.exc import SQLAlchemyError
 
 auth_bp = Blueprint('auth', __name__)
 
@@ -32,8 +33,16 @@ def register():
     # Encrypt password and create user model
     password_hash = bcrypt.generate_password_hash(password)
     user = User(name=name, email=email, password=password_hash)
-    db.session.add(user)
-    db.session.commit()
+
+    # Check the database transaction was successful
+    try:
+        # Save the model
+        db.session.add(user)
+        db.session.commit()
+    except SQLAlchemyError as e:
+        # Handle database errors
+        db.session.rollback()
+        return jsonify({'error': e}), 500
 
     # Create user session
     login_user(user)
