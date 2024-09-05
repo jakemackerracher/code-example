@@ -8,6 +8,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 migrate.init_app(app, db)
 
+from models import User
+
 @app.route('/')
 def home():
     return "Hello, Flask!"
