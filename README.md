@@ -10,31 +10,39 @@
 
    `cd api`
 
-3. Create a virtual environment
+3. Create environment file
+
+   `cp .env.example .env`
+
+4. Update environment variables
+
+   `nano .env`
+
+5. Create a virtual environment
 
    `python -m venv venv`
 
-4. Activate the virtual environment
+6. Activate the virtual environment
 
    `source venv/bin/activate`
 
-5. Install requirements within virtual environment
+7. Install requirements within virtual environment
 
    `pip install -r requirements.txt`
 
-6. Create database instance and run database migrations
+8. Create database instance and run database migrations
 
    `flask db migrate`
 
    `flask db upgrade`
 
-7. Start the Flask Application
+9. Start the Flask Application
 
    `python app.py`
 
-8. Open Flask application within browser
+10. Open Flask application within browser
 
-   Visit [http://127.0.0.1:5000](http://127.0.0.1:5000/) within your browser
+Visit [http://127.0.0.1:5000](http://127.0.0.1:5000/) within your browser
 
 To stop the Flask application, press Ctrl + C in the terminal where it's running.
 
@@ -52,11 +60,19 @@ To stop the Flask application, press Ctrl + C in the terminal where it's running
 
    `cd app`
 
-4. Start the React Application
+4. Create environment file
+
+   `cp .env.example .env`
+
+5. Update environment variables
+
+   `nano .env`
+
+6. Start the React Application
 
    `npm start`
 
-5. Open React application within browser
+7. Open React application within browser
 
    Visit [http://127.0.0.1:3000](http://127.0.0.1:3000/) within your browser
 
