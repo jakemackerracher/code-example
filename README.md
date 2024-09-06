@@ -77,3 +77,7 @@ To stop the Flask application, press Ctrl + C in the terminal where it's running
    Visit [http://127.0.0.1:3000](http://127.0.0.1:3000/) within your browser
 
 To stop the React application, press Ctrl + C in the terminal where it's running.
+
+### Testing the Flask application
+
+Follow steps 1 to 8 from within "Running the Flask application (Terminal)" section, then run `pytest`.
