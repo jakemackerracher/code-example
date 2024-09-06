@@ -1,6 +1,6 @@
 # code-example
 
-### Running the Flask application
+### Running the Flask application (Terminal)
 
 1. Ensure you have Python installed on your system
 
@@ -42,11 +42,11 @@
 
 10. Open Flask application within browser
 
-Visit [http://127.0.0.1:5000](http://127.0.0.1:5000/) within your browser
+    Visit [http://127.0.0.1:5000](http://127.0.0.1:5000/) within your browser
 
 To stop the Flask application, press Ctrl + C in the terminal where it's running.
 
-### Running the React application
+### Running the React application (Terminal)
 
 1. Ensure you have Node.js installed on your system
 
