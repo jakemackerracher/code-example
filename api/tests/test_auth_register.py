@@ -1,15 +1,26 @@
 import pytest
 from faker import Faker
+from models import User
+from base import db, bcrypt
 
 fake = Faker()
 
 def test_auth_register_endpoint_sucessful(client):
+    name = fake.name()
+    email = fake.email()
+    password = fake.password()
+
     response = client.post('/auth/register', json={
-        "name": fake.name(),
-        "email": fake.email(),
-        "password": fake.password()
+        "name": name,
+        "email": email,
+        "password": password
     })
     assert response.status_code == 201
+
+    user = User.query.filter_by(email=email).first()
+    assert user.name == name
+    assert user.email == email
+    assert bcrypt.check_password_hash(user.password, password)
 
 def test_auth_register_endpoint_user_already_registered(client):
     json={
