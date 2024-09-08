@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import styles from "./Register.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import api from "../lib/api";
 
 function Register() {
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,22 +14,34 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Clear previous error
+    setError("");
+
     // Ensure we have the required fields
     if (!name && !email && !password) {
       setError("Name, email and password required");
       return;
     }
 
-    // TODO: connect submit to api
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Password:", password);
-
-    // Clear form
-    setName("");
-    setEmail("");
-    setPassword("");
-    setError("");
+    try {
+      api
+        .post("/auth/register", {
+          name,
+          email,
+          password,
+        })
+        .then(function (response) {
+          navigate("/");
+        })
+        .catch(function (error) {
+          setError(
+            error?.response?.data?.error ||
+              "Something went wrong, please try again."
+          );
+        });
+    } catch (error) {
+      setError(error);
+    }
   };
 
   return (
