@@ -21,7 +21,7 @@ db.init_app(app)
 migrate.init_app(app, db)
 login_manager.init_app(app)
 bcrypt.init_app(app)
-CORS(app)
+CORS(app, supports_credentials=True)
 
 @login_manager.user_loader
 def load_user(user_id):
