@@ -1,6 +1,7 @@
 from flask import Flask
 from base import db, migrate, login_manager, bcrypt
 from dotenv import load_dotenv
+from flask_cors import CORS
 from auth import auth_bp
 from users import users_bp
 from models import User
@@ -20,6 +21,7 @@ db.init_app(app)
 migrate.init_app(app, db)
 login_manager.init_app(app)
 bcrypt.init_app(app)
+CORS(app)
 
 @login_manager.user_loader
 def load_user(user_id):
