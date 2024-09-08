@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+
+    input,
+    button {
+      padding: 10px;
+    }
+
+    .register_here {
+      text-align: center;
+    }
+  }
+}
