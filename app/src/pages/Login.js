@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import styles from "./Login.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import api from "../lib/api";
 
 function Login() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -10,20 +13,33 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Clear previous error
+    setError("");
+
     // Ensure we have the required fields
     if (!email && !password) {
       setError("Email and password required");
       return;
     }
 
-    // TODO: connect submit to api
-    console.log("Email:", email);
-    console.log("Password:", password);
-
-    // Clear form
-    setEmail("");
-    setPassword("");
-    setError("");
+    try {
+      api
+        .post("/auth/login", {
+          email,
+          password,
+        })
+        .then(function (response) {
+          navigate("/");
+        })
+        .catch(function (error) {
+          setError(
+            error?.response?.data?.error ||
+              "Something went wrong, please try again."
+          );
+        });
+    } catch (error) {
+      setError(error);
+    }
   };
 
   return (
