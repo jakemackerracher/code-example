@@ -8,6 +8,8 @@ from sqlalchemy import not_, and_
 
 users_bp = Blueprint('users', __name__)
 
+# TODO: add tests for users endpoints
+
 @users_bp.route("/")
 @login_required
 def get_users():
