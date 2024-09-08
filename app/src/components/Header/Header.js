@@ -5,19 +5,12 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <div className={styles.wrapper}>
-      <div>Header</div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
-        </ul>
+      <div className={styles.title}>
+        <Link to="/">code-example</Link>
+      </div>
+      <nav className={styles.links}>
+        <Link to="/login">Login</Link>
+        <Link to="/register">Register</Link>
       </nav>
     </div>
   );

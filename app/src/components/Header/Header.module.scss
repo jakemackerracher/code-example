@@ -1,5 +1,40 @@
+@use "../../scss/variables" as *;
+@use "../../scss/responsive" as *;
+
 .wrapper {
-  padding: 20px;
-  background-color: #282828;
-  color: #fff;
+  display: flex;
+  background-color: #000;
+  height: fit-content;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  @include min-width(sm) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    a {
+      display: inline-block;
+    }
+  }
 }
