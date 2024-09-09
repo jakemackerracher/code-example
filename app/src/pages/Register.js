@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import styles from "./Register.module.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useAuth } from "../authContext";
 import api from "../lib/api";
 
 function Register() {
-  const navigate = useNavigate();
+  const { register } = useAuth();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -23,25 +24,14 @@ function Register() {
       return;
     }
 
-    try {
-      api
-        .post("/auth/register", {
-          name,
-          email,
-          password,
-        })
-        .then(function (response) {
-          navigate("/");
-        })
-        .catch(function (error) {
-          setError(
-            error?.response?.data?.error ||
-              "Something went wrong, please try again."
-          );
-        });
-    } catch (error) {
-      setError(error);
-    }
+    register({
+      name,
+      email,
+      password,
+      onError: (error) => {
+        setError(error);
+      },
+    });
   };
 
   return (
