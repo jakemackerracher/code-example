@@ -5,12 +5,11 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <div className={styles.wrapper}>
-      GitHub:
       <Link
-        to="https://github.com/jakemackerracher/code-example"
+        to="https://github.com/jakemackerracher/code-example-python-react"
         target="_blank"
       >
-        jakemackerracher/code-example
+        GitHub repository
       </Link>
     </div>
   );

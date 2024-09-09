@@ -1,4 +1,4 @@
-# code-example
+# code-example-python-react
 
 ### Running the Flask application (Terminal)
 
