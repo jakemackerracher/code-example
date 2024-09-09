@@ -10,6 +10,8 @@ import styles from "./App.module.scss";
 import { AuthProvider } from "./authContext";
 
 function App() {
+  // TODO: add unit tests for entire react application
+
   return (
     <AuthProvider>
       <div className={styles.wrapper}>
