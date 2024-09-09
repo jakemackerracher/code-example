@@ -68,11 +68,15 @@ To stop the Flask application, press Ctrl + C in the terminal where it's running
 
    `nano .env`
 
-6. Start the React Application
+6. Install npm dependencies
+
+   `npm install`
+
+7. Start the React Application
 
    `npm start`
 
-7. Open React application within browser
+8. Open React application within browser
 
    Visit [http://127.0.0.1:3000](http://127.0.0.1:3000/) within your browser
 
