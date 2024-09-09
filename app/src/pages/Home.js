@@ -8,7 +8,7 @@ function Home() {
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.welcome}>
-        Hello {authState?.name || "Guest"}, welcome to my code-example.
+        Hello {authState?.name || "Guest"}, welcome to my code example.
       </h2>
       {authState && (
         <div className={styles.user_attributes}>

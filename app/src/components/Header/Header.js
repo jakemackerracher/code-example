@@ -9,7 +9,7 @@ function Header() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
-        <Link to="/">code-example</Link>
+        <Link to="/">CODE-EXAMPLE</Link>
       </div>
       <nav className={styles.links}>
         {!authState ? (
