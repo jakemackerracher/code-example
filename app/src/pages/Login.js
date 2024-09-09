@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styles from "./Login.module.scss";
-import { Link, useNavigate } from "react-router-dom";
-import api from "../lib/api";
+import { Link } from "react-router-dom";
+import { useAuth } from "../authContext";
 
 function Login() {
-  const navigate = useNavigate();
+  const { login } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,24 +22,13 @@ function Login() {
       return;
     }
 
-    try {
-      api
-        .post("/auth/login", {
-          email,
-          password,
-        })
-        .then(function (response) {
-          navigate("/");
-        })
-        .catch(function (error) {
-          setError(
-            error?.response?.data?.error ||
-              "Something went wrong, please try again."
-          );
-        });
-    } catch (error) {
-      setError(error);
-    }
+    login({
+      email,
+      password,
+      onError: (error) => {
+        setError(error);
+      },
+    });
   };
 
   return (
