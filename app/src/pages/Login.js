@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import styles from "./Login.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../authContext";
 
 function Login() {
-  const { login } = useAuth();
+  const { login, authState, onLoginRedirectUrl } = useAuth();
+  const navigate = useNavigate();
+
+  // Redirect if already logged in
+  if (authState) {
+    navigate(onLoginRedirectUrl);
+  }
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

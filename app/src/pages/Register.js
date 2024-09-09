@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import styles from "./Register.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../authContext";
-import api from "../lib/api";
 
 function Register() {
-  const { register } = useAuth();
+  const { register, authState, onLoginRedirectUrl } = useAuth();
+  const navigate = useNavigate();
+
+  // Redirect if already logged in
+  if (authState) {
+    navigate(onLoginRedirectUrl);
+  }
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
